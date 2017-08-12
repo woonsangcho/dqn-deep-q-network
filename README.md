@@ -5,4 +5,4 @@ This is an implementation of DQN. I referred to OpenAI's implementation: https:/
 
 This structure provides a research framework that can extend to new RL algorithms for comparison purposes.   
 
-![DQN Performance Sample](https://github.com/woonsangcho/dqn-deep-q-network/blob/master/dqn.png)
+![DQN Performance Sample](https://github.com/woonsangcho/dqn-deep-q-network/blob/master/dqn.jpg)

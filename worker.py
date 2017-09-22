@@ -91,16 +91,7 @@ class WorkerDQN(GeneralWorker):
                             session.run(self.local_brain.update_gradient_op, feed_dict = feed_dict)
 
                         if t > self.replay_start_size and t % self.target_network_update_freq == 0:
-                            replay_batch = self.replay_buffer.sample(self.minibatch_size)
-                            feed_dict = {
-                                self.local_brain.learning_rate: self.initial_learning_rate,
-                                self.local_brain.input: replay_batch.obses_t,
-                                self.local_brain.input_tp1: replay_batch.obses_tp1,
-                                self.local_brain.r: replay_batch.rewards,
-                                self.local_brain.gamma: 0.99,
-                                self.local_brain.actions: np.vstack(replay_batch.actions)
-                            }
-                            session.run(self.local_brain.update_target_ops, feed_dict=feed_dict)
+                            session.run(self.local_brain.update_target_ops)
 
                         if t >= 10000 and t % 5000 == 0:
                             feed_dict = {

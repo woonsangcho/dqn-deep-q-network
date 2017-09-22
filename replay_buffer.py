@@ -6,14 +6,6 @@ Batch = namedtuple("Batch", ["obses_t", "actions", "rewards", "values", "obses_t
 
 class ReplayBuffer(object):
     def __init__(self, size):
-        """Create Prioritized Replay buffer.
-
-        Parameters
-        ----------
-        size: int
-            Max number of transitions to store in the buffer. When the buffer
-            overflows the old memories are dropped.
-        """
         self._storage = []
         self._maxsize = size
         self._next_idx = 0
